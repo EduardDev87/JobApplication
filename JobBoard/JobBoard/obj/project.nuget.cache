@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MNTBFpzGNgVM1N9aZ//wYCZh/iGq6bNy7VuOGKVc6vm+YKRnIDhzoPFkSAnFitRHjw+NOXdgm+oxdqrnGhy2gw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dennis\\Documents\\JobBoard\\JobApplication\\JobBoard\\JobBoard\\JobBoard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dennis\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
