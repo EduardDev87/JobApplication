@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JobBoard.Data;
+using JobBoard.Dto;
 using JobBoard.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,13 +35,14 @@ namespace JobBoard.Controllers.api
         }
 
         [HttpPost]
-        public ActionResult CreateJob(Job job) {
+        public ActionResult CreateJob(JobDto job) {
+
             _jobsRepository.CreateJob(job);
             return NoContent();
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateJob(int id, Job job) {
+        public ActionResult UpdateJob(int id, JobDto job) {
 
             var updatedJob = _jobsRepository.UpdateJob(id, job);
 

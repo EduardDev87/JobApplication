@@ -31,11 +31,17 @@ $(function () {
 
     //
     $("#btnCreateJob").click(function () {
+        //if ($("#CreateModal form .expire-date").val() == "") {
+        //    $("#CreateModal form .expire-date").val("0001-01-01");
+        //}
         var data = ConvertFormToJSON($("#CreateModal form"));
         CreateJob(data);
     });
 
     $("#btnUpdateJob").click(function () {
+        //if ($("#UpdateModal form .expire-date").val() == "") {
+        //    $("#UpdateModal form .expire-date").val("0001-01-01");
+        //}
         var data = ConvertFormToJSON($("#UpdateModal form"));
         SendEditJob(data);
     });

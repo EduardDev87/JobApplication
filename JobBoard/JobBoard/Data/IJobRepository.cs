@@ -1,4 +1,5 @@
-﻿using JobBoard.Models;
+﻿using JobBoard.Dto;
+using JobBoard.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace JobBoard.Data
 
         public void DeleteJob(int ID);
 
-        public Job CreateJob(Job job);
+        public Job CreateJob(JobDto jobDto);
 
-        public Job UpdateJob(int id, Job job);
+        public Job UpdateJob(int id, JobDto jobDto);
     }
 }

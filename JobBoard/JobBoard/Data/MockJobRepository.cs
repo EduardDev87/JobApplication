@@ -1,9 +1,11 @@
-﻿using JobBoard.Models;
+﻿using JobBoard.Dto;
+using JobBoard.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace JobBoard.Data
 {
@@ -24,7 +26,7 @@ namespace JobBoard.Data
             }); ;
 
         }
-        public Job CreateJob(Job job)
+        public Job CreateJob(JobDto jobDto)
         {
             //Get Current Max ID
             var lastID = 0;
@@ -32,7 +34,7 @@ namespace JobBoard.Data
             if (jobsIDs.Count() > 0) {
                 lastID = jobsIDs.Max();
             }
-            
+            var job = convertDto(jobDto);
 
             //Update Dinamic Values
             job.ID = lastID + 1;
@@ -69,12 +71,13 @@ namespace JobBoard.Data
             return job;
         }
 
-        public Job UpdateJob(int id, Job job)
+        public Job UpdateJob(int id, JobDto jobDto)
         {
             var curjob = _Jobs.FirstOrDefault(c => c.ID == id);
 
             if (curjob is null) return null;
 
+            var job = convertDto(jobDto);
             //Update Values
             curjob.Title = job.Title;
             curjob.Description = job.Description;
@@ -82,6 +85,24 @@ namespace JobBoard.Data
 
 
             return curjob;
+        }
+
+        private Job convertDto(JobDto dto) {
+            
+            if (string.IsNullOrEmpty(dto.CreatedAt)){
+                dto.CreatedAt = DateTime.MinValue.ToString();
+            }
+            if (string.IsNullOrEmpty(dto.ExpiresAt)) {
+                dto.ExpiresAt = DateTime.MinValue.ToString();
+            }
+            return new Job()
+            {
+                CreatedAt = DateTime.Parse(dto.CreatedAt),
+                ExpiresAt = DateTime.Parse(dto.ExpiresAt),
+                Description = dto.Description,
+                ID = dto.ID,
+                Title = dto.Title
+            };
         }
     }
 }
