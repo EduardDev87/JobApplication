@@ -23,10 +23,10 @@ namespace JobBoard.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
+        public IActionResult CreateJob() {
+            return View(new Job());
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

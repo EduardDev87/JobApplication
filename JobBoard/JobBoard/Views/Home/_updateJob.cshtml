@@ -1,0 +1,35 @@
+﻿<div class="modal" tabindex="-1" role="dialog" id="UpdateModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Title: </label>
+                        <input type="text" id="txtTitle" name="title" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description: </label>
+                        <input type="text" id="txtDescription" name="description" />
+                    </div>
+                    <div class="form-group">
+                        <label>ExpiresAt: </label>
+                        <input type="date" id="txtExpires" name="expiresAt" />
+                    </div>
+
+
+                </form>
+                <input type="hidden" name="id" id="idx" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnUpdateJob">Update Job</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

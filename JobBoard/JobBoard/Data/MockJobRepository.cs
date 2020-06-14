@@ -27,8 +27,13 @@ namespace JobBoard.Data
         public Job CreateJob(Job job)
         {
             //Get Current Max ID
-            var lastID = _Jobs.Select(c => c.ID).Max();
+            var lastID = 0;
+            var jobsIDs = _Jobs.Select(c => c.ID);
+            if (jobsIDs.Count() > 0) {
+                lastID = jobsIDs.Max();
+            }
             
+
             //Update Dinamic Values
             job.ID = lastID + 1;
             job.CreatedAt = DateTime.Now;
@@ -64,9 +69,9 @@ namespace JobBoard.Data
             return job;
         }
 
-        public Job UpdateJob(Job job)
+        public Job UpdateJob(int id, Job job)
         {
-            var curjob = _Jobs.FirstOrDefault(c => c.ID == job.ID);
+            var curjob = _Jobs.FirstOrDefault(c => c.ID == id);
 
             if (curjob is null) return null;
 

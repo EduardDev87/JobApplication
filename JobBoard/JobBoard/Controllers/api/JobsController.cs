@@ -36,16 +36,23 @@ namespace JobBoard.Controllers.api
         [HttpPost]
         public ActionResult CreateJob(Job job) {
             _jobsRepository.CreateJob(job);
-            return Ok();
+            return NoContent();
         }
 
-        [HttpPut]
-        public ActionResult UpdateJob(Job job) {
-            var updatedJob = _jobsRepository.UpdateJob(job);
+        [HttpPut("{id}")]
+        public ActionResult UpdateJob(int id, Job job) {
+
+            var updatedJob = _jobsRepository.UpdateJob(id, job);
 
             if(updatedJob is null) return NotFound();
 
-            return Ok();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteJob(int id) {
+            _jobsRepository.DeleteJob(id);
+            return NoContent();
         }
 
     }

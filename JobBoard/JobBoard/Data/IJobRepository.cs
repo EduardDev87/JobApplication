@@ -16,6 +16,6 @@ namespace JobBoard.Data
 
         public Job CreateJob(Job job);
 
-        public Job UpdateJob(Job job);
+        public Job UpdateJob(int id, Job job);
     }
 }
